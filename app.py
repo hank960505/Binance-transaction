@@ -14,6 +14,13 @@ exchange = ccxt.binance({
     'apiKey': api_key,
     'secret': secret_key,
     'enableRateLimit': True,
+    # 改用幣安的海外備用連線點，通常能避開美國 IP 限制
+    'urls': {
+        'api': {
+            'public': 'https://api1.binance.com/api/v3',
+            'private': 'https://api1.binance.com/api/v3',
+        }
+    }
 })
 
 st.set_page_config(page_title="獵人資產外掛", page_icon="🎯")
